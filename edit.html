@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Edit Student</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+    <h1>Edit Student</h1>
+
+    <form id="editForm">
+
+        <input type="text" id="name" placeholder="Name" required>
+        <br><br>
+
+        <input type="text" id="age" placeholder="Age" required>
+        <br><br>
+
+        <input type="email" id="email" placeholder="Email" required>
+        <br><br>
+
+        <input type="number" id="cgpa" placeholder="CGPA" required>
+        <br><br>
+
+        <button type="submit">
+            Update
+        </button>
+
+    </form>
+
+    <script>
+
+        async function loadStudentData() {
+
+            const id = localStorage.getItem("editStudentId");
+
+            const response = await fetch(
+                `http://localhost:3000/students/${id}`
+            );
+
+            const student = await response.json();
+
+            document.getElementById("name").value = student.name;
+            document.getElementById("age").value = student.age;
+            document.getElementById("email").value = student.email;
+            document.getElementById("cgpa").value = student.cgpa;
+        }
+
+        loadStudentData();
+
+        document.getElementById("editForm")
+        .addEventListener("submit", async function(event){
+
+            event.preventDefault();
+
+            const id = localStorage.getItem("editStudentId");
+
+            const updatedStudent = {
+
+                id: id,
+
+                name: document.getElementById("name").value,
+                age: document.getElementById("age").value,
+                email: document.getElementById("email").value,
+                cgpa: document.getElementById("cgpa").value
+            };
+
+            await fetch(`http://localhost:3000/students/${id}`, {
+
+                method: "PUT",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify(updatedStudent)
+            });
+
+            window.location.href = "./view.html";
+        });
+
+    </script>
+
+</body>
+</html>

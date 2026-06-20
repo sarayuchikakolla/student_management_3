@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Students</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="view.html">View Student</a>
+        <a href="logout.html">Logout</a>
+    </nav>
+    <form  action="view.html" onsubmit="return addStudent(event)">
+        <br><br>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" placeholder="Name" required><br><br>
+        <label for="age">Age:</label><br>
+        <input type="text" id="age" placeholder="Age" required><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" placeholder="Email" required><br><br>
+        <label for="cgpa">CGPA:</label><br>
+        <input type="text" id="cgpa" placeholder="CGPA" required><br><br>
+        <button type="submit">Add Student</button>
+    </form>
+</body>
+</html>

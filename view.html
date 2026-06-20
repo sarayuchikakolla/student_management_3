@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Details</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="add.html">Add Student</a>
+        <a href="logout.html">Logout</a>
+    </nav>
+    <h1>Student Details</h1>
+
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>CGPA</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody id="studentTableBody">
+
+    </tbody>
+</table>
+
+<script>
+    loadStudents();
+</script>
+</body>
+</html> 

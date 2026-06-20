@@ -1,0 +1,75 @@
+{
+  "users": [
+    {
+      "name": "deeks",
+      "email": "deeks@gmail.com",
+      "password": "dee",
+      "id": "3jWNAhmeSnY"
+    },
+    {
+      "name": "bit",
+      "email": "bit@gmail.com",
+      "password": "bit",
+      "id": "YBEbKArSiHo"
+    }
+  ],
+  "students": [
+    {
+      "id": "BUupS563YU8",
+      "name": "JLo",
+      "age": "0",
+      "email": "jlo@gmail.com",
+      "cgpa": "8"
+    },
+    {
+      "name": "gesha",
+      "age": "17",
+      "email": "g@gmail.com",
+      "cgpa": "8",
+      "id": "vMgc3lCR9R4"
+    },
+    {
+      "name": "gw",
+      "age": "17",
+      "email": "gw@gmail.com",
+      "cgpa": "7",
+      "id": "eOZLh72d04I"
+    },
+    {
+      "name": "lo",
+      "age": "19",
+      "email": "lo@gmail.com",
+      "cgpa": "9",
+      "id": "P7_aOEo-DOk"
+    },
+    {
+      "name": "sri",
+      "age": "10s",
+      "email": "sri@gmail.com",
+      "cgpa": "10",
+      "id": "5ErxZXtxjSU"
+    },
+    {
+      "name": "wee",
+      "age": "10",
+      "email": "wee@gmail.com",
+      "cgpa": "8",
+      "id": "uwRtuU3SxlI"
+    },
+    {
+      "name": "we",
+      "age": "15",
+      "email": "we@gmail.com",
+      "cgpa": "7",
+      "id": "PjfR9MdsU5E"
+    },
+    {
+      "name": "bee",
+      "age": "19",
+      "email": "bee@gmail.com",
+      "cgpa": "9",
+      "id": "jet2ambL5SU"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
