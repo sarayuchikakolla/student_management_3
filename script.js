@@ -16,7 +16,7 @@ async function registerUser(event) {
     try {
 
         // Fetch existing users
-        const response = await fetch("http://localhost:3000/users");
+        const response = await fetch("http://localhost:8081/users");
         const users = await response.json();
 
         // Check if user already exists
@@ -35,7 +35,7 @@ async function registerUser(event) {
         };
 
         // Add user to db.json
-        const result = await fetch("http://localhost:3000/users", {
+        const result = await fetch("http://localhost:8081/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -67,28 +67,37 @@ async function loginUser(event) {
     let password = document.getElementById("password").value;
 
     try {
-        const response = await fetch("http://localhost:3000/users");
+        const response = await fetch("http://localhost:8081/users");
         const users = await response.json();
 
-    let validUser = users.find(
-        user => user.email === email && user.password === password
-    );
+        // DEBUGGING
+        console.log("Users from DB:", users);
+        console.log("Entered Email:", email);
+        console.log("Entered Password:", password);
 
-    if (validUser) {
+        let validUser = users.find(
+            user => user.email === email &&
+                    user.password === password
+        );
 
-        localStorage.setItem("loggedInUser", JSON.stringify(validUser));
+        console.log("Matched User:", validUser);
 
-        alert("Login Successful");
-        window.location.href = "dashboard.html";
-    } else {
-        alert("Invalid email or password");
-    }
+        if (validUser) {
+
+            localStorage.setItem("loggedInUser", JSON.stringify(validUser));
+
+            alert("Login Successful");
+            window.location.href = "dashboard.html";
+
+        } else {
+            alert("Invalid email or password");
+        }
+
     } catch (error) {
         console.log(error);
         alert("Something went wrong");
     }
 }
-
 // ================= LOGOUT =================
 async function logoutUser() {
 
@@ -112,7 +121,7 @@ async function addStudent(event) {
 
     try {
 
-        const result = await fetch("http://localhost:3000/students", {
+        const result = await fetch("http://localhost:8081/students", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -144,7 +153,7 @@ async function loadStudents() {
 
     const tableBody = document.getElementById("studentTableBody");
 
-    const response = await fetch("http://localhost:3000/students");
+    const response = await fetch("http://localhost:8081/students");
 
     const students = await response.json();
 
@@ -202,7 +211,7 @@ async function updateStudent(event) {
         cgpa: document.getElementById("cgpa").value
     };
 
-    await fetch(`http://localhost:3000/students/${id}`, {
+    await fetch(`http://localhost:8081/students/${id}`, {
 
         method: "PUT",
 
@@ -221,7 +230,7 @@ async function updateStudent(event) {
 // ================= DELETE STUDENT =================
 async function deleteStudent(id) {
 
-    await fetch(`http://localhost:3000/students/${id}`, {
+    await fetch(`http://localhost:8081/students/${id}`, {
         method: "DELETE"
     });
 

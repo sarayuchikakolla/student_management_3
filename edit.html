@@ -40,7 +40,7 @@
             const id = localStorage.getItem("editStudentId");
 
             const response = await fetch(
-                `http://localhost:3000/students/${id}`
+                `http://localhost:8081/students/${id}`
             );
 
             const student = await response.json();
@@ -70,7 +70,7 @@
                 cgpa: document.getElementById("cgpa").value
             };
 
-            await fetch(`http://localhost:3000/students/${id}`, {
+            await fetch(`http://localhost:8081/students/${id}`, {
 
                 method: "PUT",
 
